@@ -12,11 +12,12 @@ namespace ConsoleUI
         {
             List<Person> output = new List<Person>();
             Person p;
+            //read all lines from file as List
             var lines = System.IO.File.ReadAllLines(filePath).ToList();
 
             // Remove the header row
             lines.RemoveAt(0);
-
+            //looping through all data and adding to List<Person>
             foreach (var line in lines)
             {
                 var vals = line.Split(',');
@@ -38,12 +39,12 @@ namespace ConsoleUI
 
             // Add a header row
             lines.Add("FirstName,IsAlive,LastName");
-
+            //adding as many lines as there are people
             foreach (var p in people)
             {
                 lines.Add($"{ p.FirstName },{ p.IsAlive },{ p.LastName }");
             }
-
+            //writing all line
             System.IO.File.WriteAllLines(filePath, lines);
         }
     }

@@ -1,0 +1,7 @@
+D:\AspNetApps\Generics_D1\ConsoleUI\bin\Debug\ConsoleUI.exe.config
+D:\AspNetApps\Generics_D1\ConsoleUI\bin\Debug\ConsoleUI.exe
+D:\AspNetApps\Generics_D1\ConsoleUI\bin\Debug\ConsoleUI.pdb
+D:\AspNetApps\Generics_D1\ConsoleUI\obj\Debug\ConsoleUI.csproj.AssemblyReference.cache
+D:\AspNetApps\Generics_D1\ConsoleUI\obj\Debug\ConsoleUI.csproj.CoreCompileInputs.cache
+D:\AspNetApps\Generics_D1\ConsoleUI\obj\Debug\ConsoleUI.exe
+D:\AspNetApps\Generics_D1\ConsoleUI\obj\Debug\ConsoleUI.pdb

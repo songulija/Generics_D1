@@ -10,9 +10,10 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            
 
-            
+            //creating List that uses Generics T. That t allows us to specify which TYPE this List is about. we specify exactly what type we use
+            Console.ReadLine();
+            DemonstrateTextFileStorage();
             Console.WriteLine();
             Console.Write("Press enter to shut down...");
             Console.ReadLine();
@@ -20,20 +21,31 @@ namespace ConsoleUI
 
         private static void DemonstrateTextFileStorage()
         {
+            //it creates two lists they hold different class
             List<Person> people = new List<Person>();
             List<LogEntry> logs = new List<LogEntry>();
-            string peopleFile = @"C:\Temp\people.csv";
-            string logFile = @"C:\Temp\logs.csv";
+            string peopleFile = @"C:\GenericsTesting\people.csv";
+            string logFile = @"C:\GenericsTesting\logs.csv";
 
+            //add data to both lists first
             PopulateLists(people, logs);
 
-            OriginalTextFileProcessor.SavePeople(people, peopleFile);
+            //calling static GenericTextFileProcessor class method SaveToTextFile. giving it a type
+            //becouse its generic method
+            GenericTextFileProcessor.SaveToTextFile<Person>(people, peopleFile);
+            GenericTextFileProcessor.SaveToTextFile<LogEntry>(logs, logFile);
 
-            var newPeople = OriginalTextFileProcessor.LoadPeople(peopleFile);
-
-            foreach (var p in newPeople)
+            //loading and loggin data
+            List<Person> newPeople = GenericTextFileProcessor.LoadFromTextFile<Person>(peopleFile);
+            foreach (var person in newPeople)
             {
-                Console.WriteLine($"{ p.FirstName } { p.LastName } (IsAlive = { p.IsAlive })");
+                Console.WriteLine($"{ person.FirstName } { person.LastName } (IsAlive = { person.IsAlive })");
+            }
+
+            List<LogEntry> newLogs = GenericTextFileProcessor.LoadFromTextFile<LogEntry>(logFile);
+            foreach (var log in newLogs)
+            {
+                Console.WriteLine($"{ log.ErrorCode } { log.Message } (IsAlive = { log.TimeOfEvent.ToShortTimeString() })");
             }
         }
 
